@@ -1,0 +1,5 @@
+{
+  "request": {"action": "pass"},
+  "response": {"action": "pass"},
+  "mock": {"choices": ["Mock reply contains RESPONSE_SECRET."]}
+}

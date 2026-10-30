@@ -1,0 +1,37 @@
+# Schema: https://github.com/agentgateway/agentgateway/blob/v1.7.0/schema/config.json
+config:
+  session:
+    key: disabled
+binds:
+  - port: 3000
+    listeners:
+      - routes:
+          - name: webhook-mask-verification
+            matches:
+              - path:
+                  exact: /v1/chat/completions
+                method: POST
+            policies:
+              ai:
+                routes:
+                  /v1/chat/completions: completions
+                promptGuard:
+                  request:
+                    - webhook:
+                        target:
+                          host: guardrails:8080
+                        action: reject
+                        failureMode: failClosed
+                  response:
+                    - webhook:
+                        target:
+                          host: guardrails:8080
+                        action: reject
+                        failureMode: failClosed
+            backends:
+              - ai:
+                  name: local-mock
+                  hostOverride: mock:8000
+                  pathOverride: /v1/chat/completions
+                  provider:
+                    openAI: {}

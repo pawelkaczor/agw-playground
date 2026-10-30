@@ -1,0 +1,5 @@
+{
+  "request": {"rawReply": {"action": {"body": [{"role": "user", "content": "[MASKED]"}], "reason": "Original Java list shape"}}},
+  "response": {"action": "pass"},
+  "mock": {"choices": ["This response should not be requested."]}
+}

@@ -1,0 +1,5 @@
+{
+  "request": {"action": "pass"},
+  "response": {"action": "reject", "statusCode": 451, "body": "Blocked by local response policy.", "reason": "Manual rejection"},
+  "mock": {"choices": ["This completion is replaced by the rejection."]}
+}

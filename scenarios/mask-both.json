@@ -1,0 +1,13 @@
+{
+  "request": {
+    "action": "mask",
+    "reason": "Request literal replacement",
+    "replacements": [{"from": "REQUEST_SECRET", "to": "[REQUEST_MASKED]"}]
+  },
+  "response": {
+    "action": "mask",
+    "reason": "Response literal replacement",
+    "replacements": [{"from": "RESPONSE_SECRET", "to": "[RESPONSE_MASKED]"}]
+  },
+  "mock": {"choices": ["Mock reply contains RESPONSE_SECRET."]}
+}
